@@ -2,7 +2,7 @@
 
 const request = require('request');
 // const SEARCH_ENDPOINT = `http://akasha-services-elb-2.bezurk.org/metasearch/hotels/searches`;
-// const SEARCH_ENDPOINT = `https://services-staging.bezurk.org/metasearch/hotels/searches`;
+ const SEARCH_ENDPOINT = `https://services-staging.bezurk.org/metasearch/hotels/searches`;
 
 let totalCount = 0;
 let totalLatency = 0;
@@ -62,29 +62,6 @@ function simulateSearch(id) {
       }));
   });
 
-}
-
-function testOneRequest() {
-  let request = {
-    search: {
-      cityCode: "PAR",
-      roomsCount:1,
-      guestsCount:2,
-      checkIn: createDateWithAdditionalDay(3),
-      checkOut: createDateWithAdditionalDay(7),
-      locale: 'en',
-      siteCode: 'SG',
-      currencyCode: 'USD',
-      deviceType: 'mobile',
-      appType: 'IOS_APP',
-      userCountryCode: 'SG'
-    }
-  };
-
-
-  post(SEARCH_ENDPOINT, request).then(res => {
-    console.log(res);
-  });
 }
 
 function post(url, requestBody) {

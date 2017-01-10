@@ -55,33 +55,6 @@ function simulateSearch(id) {
 
 }
 
-function testOneRequest() {
-  let request = {
-    search: {
-      cabin: "economy",
-      adultsCount: 2,
-      childrenCount: 0,
-      infantsCount: 0,
-      siteCode: "SIN",
-      currencyCode: "USD",
-      locale: "en",
-      trips: [
-        {
-          departureCode: "SIN",
-          arrivalCode: "DXB",
-          outboundDate: createDateWithAdditionalDay(3),
-          inboundDate: createDateWithAdditionalDay(7)
-        }
-      ]
-    }
-  };
-
-
-  post(SEARCH_ENDPOINT, request).then(res => {
-    console.log(res);
-  });
-}
-
 function post(url, requestBody) {
   let before = new Date();
   return new Promise((resolve, reject) => {
